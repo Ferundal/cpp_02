@@ -44,6 +44,7 @@ SRCS_CLASSES=		Fixed.cpp \
 					Point.cpp
 
 SRCS_CPP=			${SRCS_CLASSES} \
+					bsp.cpp \
 					main.cpp
 
 SRCS_CPP_BONUS=

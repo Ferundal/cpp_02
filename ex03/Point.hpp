@@ -1,51 +1,23 @@
 #ifndef _Point_hpp_
 #define _Point_hpp_
 
+# include "Fixed.hpp"
 # include <string>
 # include <iostream>
 # include <cmath>
 
-class Fixed {
+class Point {
 private:
-	int					value;
-	static const int	point_bits = 8;
+	Fixed const	x;
+	Fixed const	y;
 public:
-	Fixed( void );
-	Fixed( const Fixed& origin);
-	Fixed( int origin);
-	Fixed( float  origin);
-
-	Fixed& operator =(const Fixed& origin);
-
-	Fixed operator +(const Fixed& origin);
-	Fixed operator -(const Fixed& origin);
-	Fixed operator *(const Fixed& origin);
-	Fixed operator /(const Fixed& origin);
-
-	bool operator ==(const Fixed& origin) const;
-	bool operator !=(const Fixed& origin) const;
-	bool operator <=(const Fixed& origin) const;
-	bool operator >=(const Fixed& origin) const;
-	bool operator <(const Fixed& origin) const;
-	bool operator >(const Fixed& origin) const;
-
-	Fixed &operator ++();
-	Fixed operator ++(int);
-	Fixed &operator --();
-	Fixed operator --(int);
-
-	static Fixed &min(Fixed &first, Fixed &second);
-	static const Fixed &min(const Fixed &first, const Fixed &second);
-	static Fixed &max(Fixed &first, Fixed &second);
-	static const Fixed &max(const Fixed &first, const Fixed &second);
-
-	~Fixed( void );
-
-	int getRawBits( void ) const;
-	void setRawBits( int const raw );
-	float toFloat( void ) const;
-	int toInt( void ) const;
+	Point( void );
+	Point( const Point& origin);
+	Point( const float float_x, const float float_y);
+	Point& operator =(const Point& origin);
+	~Point (void);
 };
 
 std::ostream &operator <<(std::ostream &outstream, const Fixed &origin);
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 #endif

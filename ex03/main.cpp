@@ -1,29 +1,14 @@
 #include <iostream>
-#include "Fixed.hpp"
+#include "Point.hpp"
 
 int main( void ) {
-	{
-		Fixed a;
-		Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-		std::cout << a << std::endl;
-		std::cout << ++a << std::endl;
-		std::cout << a << std::endl;
-		std::cout << a++ << std::endl;
-		std::cout << a << std::endl;
-		std::cout << b << std::endl;
-		std::cout << Fixed::max( a, b ) << std::endl;
-	}
-	{
-		std::cout << std::endl << "My tests" << std::endl;
-		Fixed a;
-		Fixed const b( Fixed( 5.6f ) / Fixed( 2 ) );
-		std::cout << a << std::endl;
-		std::cout << --a << std::endl;
-		std::cout << a << std::endl;
-		std::cout << a-- << std::endl;
-		std::cout << a << std::endl;
-		std::cout << b << std::endl;
-		std::cout << Fixed::min( a, b ) << std::endl;
-		return 0;
-	}
+	Point triangle[3] = {
+		Point (0.0f, 0.0f),
+		Point (0.0f, 1.0f),
+		Point (1.0f, 0.0f)
+	};
+	Point outside_point(1.0f, 1.0f);
+	Point inside_point(0.2f, 0.2f);
+	std::cout << bsp (triangle[0], triangle[1], triangle[2], outside_point) << std::endl << std::endl;
+	std::cout <<  bsp (triangle[0], triangle[1], triangle[2], inside_point) << std::endl << std::endl;
 }
