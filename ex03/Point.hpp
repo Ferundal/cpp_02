@@ -1,5 +1,5 @@
-#ifndef _Fixed_hpp_
-#define _Fixed_hpp_
+#ifndef _Point_hpp_
+#define _Point_hpp_
 
 # include <string>
 # include <iostream>
