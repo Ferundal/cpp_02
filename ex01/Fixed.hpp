@@ -3,6 +3,7 @@
 
 # include <string>
 # include <iostream>
+# include <cmath>
 
 class Fixed {
 private:
@@ -11,10 +12,16 @@ private:
 public:
 	Fixed( void );
 	Fixed( const Fixed& origin);
+	Fixed( int origin);
+	Fixed( float  origin);
 	Fixed& operator =(const Fixed& origin);
 	~Fixed( void );
 
 	int getRawBits( void ) const;
 	void setRawBits( int const raw );
+	float toFloat( void ) const;
+	int toInt( void ) const;
 };
+
+std::ostream &operator <<(std::ostream &outstream, const Fixed &origin);
 #endif
