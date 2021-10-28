@@ -1,7 +1,6 @@
 #include "Point.hpp"
 
 Point::Point( void ) {
-	std::cout << "Point default constructor called" <<std::endl;
 }
 
 Point::Point( const Point& origin) : x(origin.x), y(origin.y) {
@@ -18,5 +17,12 @@ Point& Point::operator =(const Point& origin) {
 }
 
 Point::~Point () {
-	std::cout << "Point destructor called" <<std::endl;
+
+}
+
+Fixed Point::GetX() const {
+	return x;
+}
+Fixed Point::GetY() const {
+	return y;
 }

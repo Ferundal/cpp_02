@@ -15,9 +15,12 @@ public:
 	Point( const Point& origin);
 	Point( const float float_x, const float float_y);
 	Point& operator =(const Point& origin);
+
 	~Point (void);
+
+	Fixed GetX() const;
+	Fixed GetY() const;
 };
 
-std::ostream &operator <<(std::ostream &outstream, const Fixed &origin);
 bool bsp( Point const a, Point const b, Point const c, Point const point);
 #endif
