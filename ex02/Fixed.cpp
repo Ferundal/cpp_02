@@ -54,15 +54,15 @@ Fixed Fixed::operator -(const Fixed& origin) {
 
 Fixed Fixed::operator *(const Fixed& origin) {
 	std::cout << "Arithmetic multiplication operator called" <<std::endl;
-	Fixed	ret_val;
-	ret_val.value = value * origin.value / (1 << point_bits);
+	Fixed	ret_val (this->toFloat() * origin.toFloat());
+//	ret_val.value = value * origin.value / (1 << point_bits);
 	return (ret_val);
 }
 
 Fixed Fixed::operator /(const Fixed& origin) {
 	std::cout << "Arithmetic division operator called" <<std::endl;
-	Fixed	ret_val;
-	ret_val.value = value * (1 << point_bits) / origin.value;
+	Fixed	ret_val (this->toFloat() /  origin.toFloat());
+//	ret_val.value = value * (1 << point_bits) / origin.value;
 	return (ret_val);
 }
 
@@ -113,22 +113,26 @@ bool Fixed::operator >(const Fixed& origin) const{
  */
 
 Fixed &Fixed::operator ++() {
+	std::cout << "Pre operator ++ called" <<std::endl;
 	value += 1 < point_bits;
 	return (*this);
 }
 
 Fixed Fixed::operator ++(int) {
+	std::cout << "Post operator ++ called" <<std::endl;
 	Fixed ret_val;
 	ret_val.value = value + (1 < point_bits);
 	return (ret_val);
 }
 
 Fixed &Fixed::operator --() {
+	std::cout << "Pre operator --called" <<std::endl;
 	value -= 1 < point_bits;
 	return (*this);
 }
 
 Fixed Fixed::operator --(int) {
+	std::cout << "Post operator -- called" <<std::endl;
 	Fixed ret_val;
 	ret_val.value = value - (1 < point_bits);
 	return (ret_val);
@@ -140,24 +144,28 @@ Fixed Fixed::operator --(int) {
  */
 
 Fixed &Fixed::min(Fixed &first, Fixed &second) {
+	std::cout << "Min called" <<std::endl;
 	if (first > second)
 		return (second);
 	return (first);
 }
 
 const Fixed &Fixed::min(const Fixed &first, const Fixed &second) {
+	std::cout << "Const min called" <<std::endl;
 	if (first > second)
 		return (second);
 	return (first);
 }
 
 Fixed &Fixed::max(Fixed &first, Fixed &second) {
+	std::cout << "Max called" <<std::endl;
 	if (first < second)
 		return (second);
 	return (first);
 }
 
 const Fixed &Fixed::max(const Fixed &first, const Fixed &second) {
+	std::cout << "Const max called" <<std::endl;
 	if (first < second)
 		return (second);
 	return (first);
